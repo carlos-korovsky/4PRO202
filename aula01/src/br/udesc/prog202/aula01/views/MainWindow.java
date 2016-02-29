@@ -33,7 +33,14 @@ import javax.swing.WindowConstants;
  * @author Carlos Alberto Cipriano Korovsky {@literal <carlos.korovsky at gmail.com>}
  */
 public class MainWindow extends JFrame implements ActionListener {
+    /*
+     * Definição de constantes (palavra reservada final)
+     */
+    private final String IMAGE_PATH = "/br/udesc/prog202/img/";
     
+    /*
+     * Definição dos componentes da tela.
+     */
     private JMenuBar menuBar;
     private Icon fileIcon;
     private JMenu fileMenu;
@@ -62,7 +69,6 @@ public class MainWindow extends JFrame implements ActionListener {
      * 
      */
     private void initComponents() {
-        final String imagePath = "/br/udesc/prog202/img/";
         /*
          * Configura a ação padrão ao finalizar a janela. 
          * Neste caso, sair ao fechar.
@@ -105,7 +111,7 @@ public class MainWindow extends JFrame implements ActionListener {
          * Carrega o ícone do menu Arquivo, gera um erro caso o arquivo não seja
          * encontrado. Este método carrega arquivos de dentro do pacote jar.
          */
-        fileIcon = this.carregaIconeDoJar(imagePath, "file.png");
+        fileIcon = this.carregaIconeDoJar(IMAGE_PATH, "file.png");
         
         /*
          * Cria o componente do menu Arquivo
@@ -133,7 +139,7 @@ public class MainWindow extends JFrame implements ActionListener {
         /*
          * Cria o item de menu responsável pela saída do programa.
          */
-        exitIcon = this.carregaIconeDoJar(imagePath, "exit.png");
+        exitIcon = this.carregaIconeDoJar(IMAGE_PATH, "exit.png");
         exitMenuItem = new JMenuItem();
         exitMenuItem.setText("Sair");
         exitMenuItem.setMnemonic('S');
@@ -160,7 +166,7 @@ public class MainWindow extends JFrame implements ActionListener {
          */
         clientMenu = new JMenu("Cliente");
         clientMenu.setMnemonic('C');
-        clientIcon = this.carregaIconeDoJar(imagePath, "client.png");
+        clientIcon = this.carregaIconeDoJar(IMAGE_PATH, "client.png");
         if (clientIcon != null)
             clientMenu.setIcon(clientIcon);
         
@@ -168,7 +174,7 @@ public class MainWindow extends JFrame implements ActionListener {
          * Cria o submenu "Novo..." do menu cliente e adiciona no menu "Cliente"
          */
         newClientMenuItem = new JMenuItem("Novo...", 'N');
-        newClientIcon = this.carregaIconeDoJar(imagePath, "new.png");
+        newClientIcon = this.carregaIconeDoJar(IMAGE_PATH, "new.png");
         if (newClientIcon != null)
             newClientMenuItem.setIcon(newClientIcon);
         newClientMenuItem.addActionListener(this);
