@@ -16,11 +16,14 @@
  */
 package br.udesc.prog202.aula01.views;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.GroupLayout;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -50,6 +53,7 @@ public class MainWindow extends JFrame implements ActionListener {
     private JMenu clientMenu;
     private Icon newClientIcon;
     private JMenuItem newClientMenuItem;
+    private JDesktopPane desktopPane;
     
     /**
      * Construtor da classe MainWindow, chamada após a criação de uma instância 
@@ -57,6 +61,7 @@ public class MainWindow extends JFrame implements ActionListener {
      * 
      */
     public MainWindow() {
+        
         /*
          * Chama a função initComponents aque irá fazer a inicialização e 
          * configuração da tela e seus respectivos componentes.
@@ -69,6 +74,12 @@ public class MainWindow extends JFrame implements ActionListener {
      * 
      */
     private void initComponents() {
+        
+        /*
+         * Configura o título da janela.
+         */
+        this.setTitle("Aula 01 - Janela Principal");
+
         /*
          * Configura a ação padrão ao finalizar a janela. 
          * Neste caso, sair ao fechar.
@@ -89,12 +100,7 @@ public class MainWindow extends JFrame implements ActionListener {
          * Configura o tamanho máximo da janela. 1024x768 pixels
          */
         this.setMaximumSize(new Dimension(1024, 768));
-               
-        /*
-         * Configura o título da janela.
-         */
-        this.setTitle("Aula 01 - Janela Principal");
-        
+                      
         /*
          * Cria o componente da barra de menus, onde as opções de menu serão
          * incorporadas.
@@ -186,6 +192,33 @@ public class MainWindow extends JFrame implements ActionListener {
         this.getJMenuBar().add(clientMenu);
         
         /*
+         * Cria uma área de trabalho para mostrar as jenelas do sistema
+         */
+        desktopPane = new JDesktopPane();
+        
+        /*
+         * Adiciona uma cor para a área de trabalho (facilitar a visualização)
+         */
+        desktopPane.setBackground(Color.WHITE);
+        
+        /*
+         * Configura a área de trabalho para ocupar toda a tela disponível
+         * utilizando o componente de layout chamado Group Layout
+         */
+        GroupLayout layout = new GroupLayout(this.getContentPane());
+        this.getContentPane().setLayout(layout);
+        
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addComponent(desktopPane)
+        );
+        
+        layout.setVerticalGroup(
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addComponent(desktopPane)
+        );
+        
+        /*
          * Calcula automaticamente o tamanho da janela conforme definido nas
          * funções setMinimumSize, setPreferredSize e setMaximumSize
          */
@@ -266,6 +299,12 @@ public class MainWindow extends JFrame implements ActionListener {
         JOptionPane.showMessageDialog(this, "Abre nova janela de cliente.", 
                 "Mensagem de aviso", 
                 JOptionPane.INFORMATION_MESSAGE);
+        /*
+         * Cria uma nova janela e adiciona ela ao desktop (área de trabalho)
+         */
+        NewClientWindow janela = new NewClientWindow();
+        desktopPane.add(janela);
+        janela.setVisible(true);
     }
     
 }
