@@ -26,7 +26,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <netbeans.hint.license>gpl30</netbeans.hint.license>
-        <mainClass>br.com.uktech.inputs.JoystickDemo</mainClass>
+        <mainClass>br.com.uktech.inputs.joystick.JoystickDemo</mainClass>
     </properties>
    
     <dependencies>
