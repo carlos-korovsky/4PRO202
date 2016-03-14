@@ -125,16 +125,18 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_btNovaLinhaActionPerformed
 
     private void btCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCalcularActionPerformed
-        int total = 0;
+        int totalTabela = 0;
         TableModel modelo = this.jTable1.getModel();
         for (int i = 0; i < modelo.getRowCount(); i++) {
+            String produto = (String) modelo.getValueAt(i, 0);
             int valor = (Integer) modelo.getValueAt(i, 1);
             int quantidade = (Integer) modelo.getValueAt(i, 2);
             int totalLinha = valor * quantidade;
-            total = total + totalLinha;
             modelo.setValueAt(totalLinha, i, 3);
+            System.out.println("(" + i + ") " + produto + " -> " + valor + " * " + quantidade + " = " + totalLinha);
+            totalTabela = totalTabela + totalLinha;
         }
-        lblResultado.setText("Total: " + total);
+        lblResultado.setText("Total: " + totalTabela);
     }//GEN-LAST:event_btCalcularActionPerformed
 
     private void btRemoveLinhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRemoveLinhaActionPerformed
