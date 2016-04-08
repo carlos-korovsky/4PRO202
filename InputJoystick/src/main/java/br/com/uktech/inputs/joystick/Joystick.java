@@ -26,6 +26,8 @@ import br.com.uktech.inputs.joystick.events.JoystickEvent;
 import br.com.uktech.inputs.joystick.events.JoystickPovEvent;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import net.java.games.input.Component;
 import net.java.games.input.Controller;
 import net.java.games.input.Event;
@@ -44,11 +46,11 @@ public abstract class Joystick implements Runnable {
     private final Controller controller;
     private boolean running;
     
-    private final HashMap<Component, JoystickAxis> axis;
-    private final HashMap<Component, JoystickPov> povs;
-    private final HashMap<Component, JoystickButton> buttons;
-    private final ArrayList<JoystickEvent> events;
-    private final ArrayList<JoystickListener> listeners;
+    private final Map<Component, JoystickAxis> axis;
+    private final Map<Component, JoystickPov> povs;
+    private final Map<Component, JoystickButton> buttons;
+    private final List<JoystickEvent> events;
+    private final List<JoystickListener> listeners;
     
     public Joystick(Controller controller) {
         Joystick.logger.debug("Creating a new Joystick: '{}'", controller.getName());
@@ -178,4 +180,5 @@ public abstract class Joystick implements Runnable {
         }
         this.updateListeners();
     }
+
 }

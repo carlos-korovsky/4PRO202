@@ -20,6 +20,7 @@ package br.com.uktech.inputs.joystick.driver.stick;
 import br.com.uktech.inputs.joystick.driver.AbstractStick;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import net.java.games.input.Controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,7 +31,10 @@ import org.slf4j.LoggerFactory;
  */
 public class LogitechForce3dPro extends AbstractStick {
     private static final Logger logger = LoggerFactory.getLogger(LogitechForce3dPro.class);
-    public static final ArrayList<String> names = new ArrayList<>(Arrays.asList("Logitech Force 3D Pro", "Logitech Logitech Force 3D Pro"));
+    public static final List<String> names = new ArrayList<>(
+            Arrays.asList(
+                    "Logitech Force 3D Pro", 
+                    "Logitech Logitech Force 3D Pro"));
     
     public LogitechForce3dPro(Controller controller) {
         super(controller);

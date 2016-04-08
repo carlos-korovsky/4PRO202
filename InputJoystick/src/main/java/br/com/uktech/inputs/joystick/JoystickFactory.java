@@ -19,6 +19,7 @@ package br.com.uktech.inputs.joystick;
 
 import br.com.uktech.inputs.joystick.exceptions.ControllerNotSupportedException;
 import br.com.uktech.inputs.joystick.driver.stick.CarolBoxUSBMoGouG3V45;
+import br.com.uktech.inputs.joystick.driver.stick.DragonRise;
 import br.com.uktech.inputs.joystick.driver.stick.LogitechForce3dPro;
 import java.util.HashMap;
 import net.java.games.input.Controller;
@@ -99,7 +100,9 @@ public final class JoystickFactory implements ControllerListener {
                 joystick = new LogitechForce3dPro(controller);
             } else if (CarolBoxUSBMoGouG3V45.names.contains(name)) {
                 joystick = new CarolBoxUSBMoGouG3V45(controller);
-            }   
+            } else if (DragonRise.names.contains(name)) {
+                joystick = new DragonRise(controller);
+            }     
         } else if (Controller.Type.WHEEL.equals(type)) {
             
         }

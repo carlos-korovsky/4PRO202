@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 Uhlig e Korovsky Tecnologia Ltda
+ * Copyright (C) 2016 Uhlig e Korovsky Tecnologia Ltda
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package br.com.uktech.inputs.joystick.driver.stick;
 
 import br.com.uktech.inputs.joystick.driver.AbstractStick;
@@ -26,16 +25,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- *
- * @author Carlos Alberto Cipriano Korovsky <carlos.korovsky@uktech.com.br>
+ * 
+ * @author Carlos Alberto Cipriano Korovsky <carlos.korovsky@gmail.com>
  */
-public class CarolBoxUSBMoGouG3V45 extends AbstractStick {
-    private static final Logger logger = LoggerFactory.getLogger(CarolBoxUSBMoGouG3V45.class);
-    public static final List<String> names = new ArrayList<>(
-            Arrays.asList("CarolBox USB MoGou G3 V4.5"));
+public class DragonRise extends AbstractStick {
+    private static final Logger logger = LoggerFactory.getLogger(DragonRise.class);
     
-    public CarolBoxUSBMoGouG3V45(Controller controller) {
+    public static final List<String> names = new ArrayList<>(
+            Arrays.asList("DragonRise Inc.   Generic   USB  Joystick  "));
+    
+    public DragonRise(Controller controller) {
         super(controller);
-        CarolBoxUSBMoGouG3V45.logger.debug("Creating a new CarolBoxUSBMoGouG3V45 joystick.");
+        DragonRise.logger.debug("Creating a new Dragon joystick.");
     }
+    
 }
